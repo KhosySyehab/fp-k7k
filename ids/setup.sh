@@ -23,6 +23,12 @@ nano /etc/suricata/suricata.yaml
   - /etc/suricata/rules/local.rules
 # Simpan dan keluar dari editor.
 
+# Tambahkan baris ini di ids/setup.sh
+# --- Perbaikan Lokasi Rule File ---
+mkdir -p /var/lib/suricata/rules/   
+cp /etc/suricata/rules/local.rules /var/lib/suricata/rules/
+# --- End of Perbaikan ---
+
 # Sekarang kita jalankan Suricata untuk memantau interface eth0 (Arah ke Switch/Backbone).
 # -c: file config, -i: interface monitoring
 suricata -c /etc/suricata/suricata.yaml -i eth0 -D
